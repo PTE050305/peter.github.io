@@ -1,0 +1,6 @@
+import { escapeHtml, pills } from "../utils/html.js";
+import { journey, leadership, interests } from "../data/experience.js";
+export function Journey() {
+  return `<section id="journey" class="section shell"><div class="section-heading"><span class="section-index">03 / EXPERIENCE</span><h2>The journey <em>so far.</em></h2><p>Every project, role, and challenge has helped shape how I approach technology.</p></div><div class="journey-layout"><div class="journey-main"><h3 class="subsection-title">Development journey <span>01—04</span></h3><div class="timeline">${journey.map(j=>`<article class="timeline-item"><span class="timeline-number">${j.year}</span><div><span class="tiny-tag">${escapeHtml(j.tag)}</span><h4>${escapeHtml(j.title)}</h4><p>${escapeHtml(j.description)}</p></div></article>`).join('')}</div></div><aside class="journey-aside"><div class="aside-card"><h3>Leadership experience</h3>${leadership.map(l=>`<div class="leadership-item"><small>${l.period}</small><strong>${escapeHtml(l.role)}</strong><p>${escapeHtml(l.description)}</p></div>`).join('')}</div><div class="aside-card interests"><h3>Professional interests</h3>${interests.map((x,i)=>`<div class="interest-item"><span>0${i+1}</span>${escapeHtml(x)} <b>↗</b></div>`).join('')}</div></aside></div></section>
+`;
+}
